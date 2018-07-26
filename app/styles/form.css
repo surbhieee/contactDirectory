@@ -1,0 +1,14 @@
+.directoryTable{
+  border:1px solid black; 
+  width: 500px;
+  text-align: left;
+}
+h4{
+  padding: 15px;
+}
+
+td{
+  padding: 15px;
+}
+
+table tr.active {background: #ccc;}
