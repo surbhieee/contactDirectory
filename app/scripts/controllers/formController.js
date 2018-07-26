@@ -2,14 +2,15 @@
 
 /**
  * @ngdoc function
- * @name contactDirectoryApp.controller:AboutCtrl
+ * @name contactDirectoryApp.controller:formController
  * @description
  * # AboutCtrl
  * Controller of the contactDirectoryApp
  */
 angular.module('contactDirectoryApp')
-  .controller('formController', function ($scope) {
-    $scope.Contacts = [];
+  .controller('formController', function ($scope,formService) {
+    $scope.addedContacts = []
+    $scope.Contacts = formService.getScopeData();
     
     /**
      * Add Data
@@ -17,14 +18,17 @@ angular.module('contactDirectoryApp')
     $scope.addData = function(){
       var contact = {
         Id:Math.random(),
-        Name: $scope.name,
+        FirstName: $scope.firstname,
+        LastName: $scope.lastname,
         Number: $scope.number,
-        Email: $scope.email
+        Email: $scope.email,
+        Status: $scope.status
       };
-      $scope.Contacts.push(contact);
-      $scope.Contacts = UniqueArraybyName($scope.Contacts, 'Name');
-      $scope.Contacts = UniqueArraybyName($scope.Contacts, 'Email');
-      $scope.Contacts = UniqueArraybyName($scope.Contacts, 'Number');
+      $scope.addedContacts = formService.getScopeData();
+      $scope.addedContacts.push(contact);
+      $scope.addedContacts = formService.UniqueArraybyName($scope.Contacts, 'Email');
+      $scope.addedContacts = formService.UniqueArraybyName($scope.Contacts, 'Number');
+      formService.setScopeData($scope.addedContacts);
       clearModel();
     };
 
@@ -43,9 +47,11 @@ angular.module('contactDirectoryApp')
      */
     $scope.bindData = function(data){
       $scope.id = data.Id;
-      $scope.name = data.Name;
+      $scope.firstname = data.FirstName;
+      $scope.lastname = data.LastName;
       $scope.number = data.Number;
       $scope.email = data.Email;
+      $scope.status = data.Status;
     };
 
     /**
@@ -54,40 +60,23 @@ angular.module('contactDirectoryApp')
     $scope.updateData = function(){
       $.grep($scope.Contacts, function(e){
       if(e.Id === $scope.id){
-        e.Name = $scope.name;
+        e.FirstName = $scope.firstname;
+        e.LastName = $scope.lastname;
         e.Number = $scope.number;
         e.Email = $scope.email;
+        e.Status = $scope.status;
       }
-      });
+      }); 
     };
 
     /**
      * Clearing the model after adding the contact
      */
     function clearModel(){
-      $scope.name = "";
+      $scope.firstname = "";
+      $scope.lastname = "";
       $scope.number = "";
       $scope.email = "";
+      $scope.status = "";
     }
-
-    /**
-     * Checking repeated name.
-     * @param {*} collection 
-     * @param {*} keyname 
-     */
-    var UniqueArraybyName = function(collection, keyname) {
-      var output = [], 
-          keys = [];
-
-      angular.forEach(collection, function(item) {
-          var key = item[keyname];
-          if(keys.indexOf(key) === -1) {
-              keys.push(key);
-              output.push(item);
-          }else {
-            alert("Cannot push duplicate value");
-          }
-      }); 
-      return output;
-    };
   });

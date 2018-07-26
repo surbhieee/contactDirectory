@@ -20,80 +20,10 @@
   <body ng-app="contactDirectoryApp">
     <div class="container">
       <h3>Contact Directory</h3>
-      
-        <form name = "form" ng-controller="formController">
-            <h4>Add contact</h4>
-            <table>
-              <tr>
-                <td style="padding: 15px;">
-                  Name:
-                </td>
-                <td >
-                  <input name="fname" type="text" ng-model="name" required="">
-                  <span ng-show="form.fname.$error.required" style="color: red">required</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 15px;">
-                  Phone number:
-                </td>
-                <td>
-                  <input name="fnumber" type="number" ng-model="number" required="">
-                  <span ng-show="form.fnumber.$error.required" style="color: red">required</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 15px;">
-                  Email Id:
-                </td>
-                <td>
-                  <input name="femail" type="email" ng-model="email" required=''>
-                  <span ng-show="form.femail.$error.required" style="color: red">required</span>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 15px;">
-                  <input type="button" ng-click="addData()" value="Add Contact" ng-disabled="form.femail.$error.required || form.fname.$error.required || form.fnumber.$error.required || form.femail.$error.email">
-                </td>
-                <td style="padding: 15px;">
-                  <input type="button" ng-click="updateData()" value="Update" ng-disabled="form.femail.$error.required || form.fname.$error.required || form.fnumber.$error.required || form.femail.$error.required">
-                </td>
-              </tr>
-            </table>
-      
-            <h4>Contact List</h4>
-            <table class = "directoryTable" id="rowClick">
-              <tr>
-                <th style="padding: 15px;">
-                  Name
-                </th style="padding: 15px;">
-                <th style="padding: 15px;">
-                  Number
-                </th>
-                <th style="padding: 15px;">
-                  Email
-                </th>
-                <th>
-                </th>
-              </tr>
-              <tr ng-click="bindData(contact)"  ng-repeat="contact in Contacts track by contact.Name">
-                <td>
-                  {{contact.Name}}
-                </td>
-                <td>
-                  {{contact.Number}}
-                </td>
-                <td>
-                  {{contact.Email}}
-                </td>
-                <td>
-                  <input type="button" ng-click="deleteRow(contact)" value="delete">
-                </td>
-              </tr>
-            </table>
-          </form>
-    </div>
-    
+      <a href="#!" style="padding:15px;">Home</a>
+      <a href="#!contacts" style="padding:15px;">Contacts</a>
+        <div ng-view></div>
+    </div>    
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -112,6 +42,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/formController.js"></script>
+        <script src="scripts/services/formService.js"></script>
         <!-- endbuild -->
 </body>
 </html>
