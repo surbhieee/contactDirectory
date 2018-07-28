@@ -30,11 +30,11 @@
                                                   </tr>
                                                   <tr>
                                                     <td style="padding: 15px;">
-                                                        Last Name:
+                                                      Last Name:
                                                      </td>
                                                      <td>
-                                                          <input name="flname" type="text" ng-model="lastname" required="">
-                                                          <span ng-show="form.flname.$error.required" style="color: red">required</span>
+                                                        <input name="flname" type="text" ng-model="lastname" required="">
+                                                        <span ng-show="form.flname.$error.required" style="color: red">required</span>
                                                         </td>
                                                       </tr>
                                                   <tr>
@@ -59,21 +59,21 @@
                                                     </td>
                                                   </tr>
                                                   <tr>
-                                                        <td style="padding: 15px;">
+                                                      <td style="padding: 15px;">
                                                           Status:
-                                                        </td>
-                                                        <td>
-                                                            <select name="fstatus" ng-model="status" required='' style="width: 175px">
+                                                      </td>
+                                                      <td>
+                                                          <select name="fstatus" ng-model="status" required='' style="width: 175px">
                                                                 <option value="Active">Active</option>
                                                                 <option value="Inactive">Inactive</option>
-                                                            </select>
+                                                          </select>
                                                           <span ng-show="form.fstatus.$error.required" style="color: red">required</span>
-                                                        </td>
+                                                      </td>
                                                     </tr>
                                                   <tr>
-                                                        <td style="padding: 15px;">
-                                                                <button class="btn btn-danger" ng-click="resetData()"><span class="	glyphicon glyphicon-minus"></span> Reset</button>
-                                                              </td>
+                                                      <td style="padding: 15px;">
+                                                        <button class="btn btn-danger" ng-click="resetData()"><span class="	glyphicon glyphicon-minus"></span> Reset</button>
+                                                      </td>
                                                     <td style="padding: 15px;">
                                                       <button class="btn btn-success" ng-click="addData()"  ng-disabled="form.femail.$error.required || form.ffname.$error.required || form.flname.$error.required || form.fstatus.$error.required || form.fnumber.$error.required || form.femail.$error.email || form.fnumber.$error.min || form.fnumber.$error.max"><span class="	glyphicon glyphicon-plus"></span> Add Contact</button>
                                                     </td>
@@ -88,7 +88,6 @@
                   </div>
                 </div>
               </div>
-          </div>
-      
+          </div>      
     </div>
     
