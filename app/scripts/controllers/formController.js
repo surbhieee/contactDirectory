@@ -9,7 +9,7 @@
  */
 angular.module('contactDirectoryApp')
   .controller('formController', function ($scope,formService) {
-    $scope.addedContacts = []
+    $scope.addedContacts = [];
     $scope.Contacts = formService.getScopeData();
     
     /**
@@ -26,9 +26,17 @@ angular.module('contactDirectoryApp')
       };
       $scope.addedContacts = formService.getScopeData();
       $scope.addedContacts.push(contact);
-      $scope.addedContacts = formService.UniqueArraybyName($scope.Contacts, 'Email');
-      $scope.addedContacts = formService.UniqueArraybyName($scope.Contacts, 'Number');
+      $scope.addedContacts = formService.UniqueArraybyName($scope.addedContacts, 'Email');
+      $scope.addedContacts = formService.UniqueArraybyName($scope.addedContacts, 'Number');
       formService.setScopeData($scope.addedContacts);
+      $scope.Contacts = formService.getScopeData();
+      clearModel();
+    };
+
+    /**
+     * Reset data
+     */
+    $scope.resetData = function(){
       clearModel();
     };
 
@@ -39,6 +47,7 @@ angular.module('contactDirectoryApp')
     $scope.deleteRow = function(data){
       var index = $scope.Contacts.indexOf(data);
       $scope.Contacts.splice(index,1);
+      clearModel();
     };
 
     /**

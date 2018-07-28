@@ -1,0 +1,94 @@
+<div class="container" ng-controller="formController">
+        <div class="row panel-group">
+            <div class="panel panel-primary" style=" border-color: black;">
+                <div class="panel-heading" style="background-color: black;">Record Maintanence</div>
+                <div class="panel-body">
+                  <div class="col-xs-5">
+                      <ul class="list-group" style=" border-color:solid 1px black;">
+                          <li class="list-group-item" > <h4>Contacts:</h4>
+                            <li class="list-group-item list-group-item-action list-group-item-dark" ng-repeat="contact in Contacts | orderBy: 'name' ">{{contact.FirstName+ " " + contact.LastName}}</li>
+                          </li>
+                      </ul> 
+                  </div>
+                  <div class="col-xs-7">
+                      <div class="panel-group">
+                          <div class="panel panel-primary" style=" border-color: black;">
+                            <div class="panel-heading" style="background-color: black;">Add Contact</div>
+                            <div class="panel panel-default">
+                                
+                                <div class="panel-body">
+                                        <form name = "form">
+                                                <table>
+                                                  <tr>
+                                                    <td style="padding: 15px;">
+                                                      First Name:
+                                                    </td>
+                                                    <td>
+                                                      <input name="ffname" type="text" ng-model="firstname" required="">
+                                                      <span ng-show="form.ffname.$error.required" style="color: red">required</span>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="padding: 15px;">
+                                                        Last Name:
+                                                     </td>
+                                                     <td>
+                                                          <input name="flname" type="text" ng-model="lastname" required="">
+                                                          <span ng-show="form.flname.$error.required" style="color: red">required</span>
+                                                        </td>
+                                                      </tr>
+                                                  <tr>
+                                                    <td style="padding: 15px;">
+                                                      Phone number:
+                                                    </td>
+                                                    <td>
+                                                      <input name="fnumber" type="number" ng-model="number" required="" min="7000000000" max="9999999999" style="width: 175px">
+                                                      <span ng-show="form.fnumber.$error.required" style="color: red">required</span>
+                                                      <span ng-show="form.fnumber.$error.min" style="color: red">Phone number cannot be less than 7000000000</span>
+                                                      <span ng-show="form.fnumber.$error.max" style="color: red">Phone number cannot be less than 9999999999</span>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="padding: 15px;">
+                                                      Email Id:
+                                                    </td>
+                                                    <td>
+                                                      <input name="femail" type="email" ng-model="email" required=''>
+                                                      <span ng-show="form.femail.$error.required" style="color: red">required</span>
+                                                      <span ng-show="form.femail.$error.email" style="color: red">invalid mail Id</span>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                        <td style="padding: 15px;">
+                                                          Status:
+                                                        </td>
+                                                        <td>
+                                                            <select name="fstatus" ng-model="status" required='' style="width: 175px">
+                                                                <option value="Active">Active</option>
+                                                                <option value="Inactive">Inactive</option>
+                                                            </select>
+                                                          <span ng-show="form.fstatus.$error.required" style="color: red">required</span>
+                                                        </td>
+                                                    </tr>
+                                                  <tr>
+                                                        <td style="padding: 15px;">
+                                                                <button class="btn btn-danger" ng-click="resetData()"><span class="	glyphicon glyphicon-minus"></span> Reset</button>
+                                                              </td>
+                                                    <td style="padding: 15px;">
+                                                      <button class="btn btn-success" ng-click="addData()"  ng-disabled="form.femail.$error.required || form.ffname.$error.required || form.flname.$error.required || form.fstatus.$error.required || form.fnumber.$error.required || form.femail.$error.email || form.fnumber.$error.min || form.fnumber.$error.max"><span class="	glyphicon glyphicon-plus"></span> Add Contact</button>
+                                                    </td>
+                                                  </tr>
+                                                </table>        
+                                              </form>
+                                </div>
+                              </div>
+                            
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      
+    </div>
+    

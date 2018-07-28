@@ -2,15 +2,10 @@
 
 angular.module("contactDirectoryApp")
 .service('formService',function(){
-var factory = {
-    getScopeData: getScopeData,
-    setScopeData: setScopeData,
-    UniqueArraybyName:UniqueArraybyName
-};
 
-var scopeObject = [];
+var scopeObject = [{Id: 234, FirstName:"John", LastName:"Doe", Email:"abc@gmail.com", Number:9561369648, Status:"Inactive"},
+{Id: 2341, FirstName:"Nitin", LastName:"Makhija", Email:"bde@gmail.com", Number:9561369250, Status:"Active"}];
 
-return factory;
 
 /**
  * returning the stored scope array
@@ -47,5 +42,12 @@ function UniqueArraybyName(collection, keyname) {
             }
         }); 
         return output;
-      };
+      }
+
+      var factory = {
+        getScopeData: getScopeData,
+        setScopeData: setScopeData,
+        UniqueArraybyName:UniqueArraybyName
+    };
+    return factory;
 });

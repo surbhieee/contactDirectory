@@ -23,8 +23,12 @@ angular
         templateUrl: '/views/home.html',
         controller: 'formController',
       })
-      .when('/contacts', {
-        templateUrl: '/views/list.html',
+      .when('/add', {
+        templateUrl: '/views/add.html',
+        controller: 'formController',
+      })
+      .when('/edit_remove', {
+        templateUrl: '/views/editRemove.html',
         controller: 'formController',
       })
       .otherwise({
