@@ -39,7 +39,7 @@
     "test": "karma start test\\karma.conf.js"
   },
   "dependencies": {
-    "karma": "^2.0.5",
+    "karma": "^3.0.0",
     "karma-jasmine": "^1.1.2"
   }
 }
