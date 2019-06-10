@@ -26,7 +26,7 @@
     "grunt-svgmin": "^6.0.0",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^3.0.1",
-    "jasmine-core": "^3.1.0",
+    "jasmine-core": "^3.4.0",
     "jit-grunt": "^0.9.1",
     "jshint-stylish": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.4",
@@ -39,6 +39,7 @@
     "test": "karma start test\\karma.conf.js"
   },
   "dependencies": {
+    "handlebars": "^4.1.2",
     "karma": "^4.1.0",
     "karma-jasmine": "^1.1.2"
   }
